@@ -1,0 +1,9 @@
+package com.example.university_db.dto;
+import com.example.university_db.model.Course;
+public record CourseDto(String code, String title, Integer credits, String lecturer, String
+department) {
+ public static CourseDto from(Course c) {
+ return new CourseDto(c.getCode(), c.getTitle(), c.getCredits(),
+ c.getLecturer().getName(), c.getLecturer().getDepartment().getName());
+ }
+}
